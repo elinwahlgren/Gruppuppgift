@@ -1,8 +1,14 @@
+
+
+15/10 Närvarande: Malin, Elin, Faezeh
+Skapade issues i projektet på github.
+
 14/10 Närvarande: Malin, Elin, (Andreas)
 Skapade projekt och kanbantavla
 Satte upp mapstruktur
 La in filen med data
 Bjöd in Teimor
+Planerar att göra samtliga reviews i helgrupp. 
 
 13/10 Närvarande: Malin, Elin Faezeh
 Satte upp repo och klonade
