@@ -1,7 +1,8 @@
-14/10 Närvarande: Malin, Elin, Andreas
+14/10 Närvarande: Malin, Elin, (Andreas)
 Skapade projekt och kanbantavla
 Satte upp mapstruktur
 La in filen med data
+Bjöd in Teimor
 
 13/10 Närvarande: Malin, Elin Faezeh
 Satte upp repo och klonade
