@@ -1,3 +1,9 @@
+16/10 Närvarande: Malin, Elin, Faezeh; Teimor
+Skapade branches:
+- git checkout -b feat/namn_på_din_branch
+- git push -u origin feat/namn_på_din_branch
+- därefter git add ., hit commit och git push
+- kom ihåg att ta git pull innan du börjar jobba
 
 
 15/10 Närvarande: Malin, Elin, Faezeh
