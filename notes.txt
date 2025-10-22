@@ -1,7 +1,12 @@
+23/10 Närvarande: 
 
-22/10 Närvarande: 
 
-
+------------------------------------------------------------------------
+22/10 Närvarande: Malin, Elin, Faezeh
+- Skapde issues och branches för inläsning och städning av filen
+- Kodade för inläsning
+- Kodade för städning inkl. en class
+Har flera frågor till Joakim inför morgondagen
 
 ------------------------------------------------------------------------
 
