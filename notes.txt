@@ -1,9 +1,16 @@
 
+22/10 Närvarande: 
+
 
 
 ------------------------------------------------------------------------
 
-16/10 Närvarande: Malin, Elin, Faezeh; Teimor
+21/10 Närvarande: Malin, Elin
+- Tittade på hur man kvalitetsgranskar datan
+- PLanerade att gör kvalitetsgranskningen och def funktioner på onsdagen.
+------------------------------------------------------------------------
+
+16/10 Närvarande: Malin, Elin, Faezeh, Teimor
 Skapade branches:
 - git checkout -b feat/namn_på_din_branch
 - git push -u origin feat/namn_på_din_branch
