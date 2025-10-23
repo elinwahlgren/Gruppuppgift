@@ -1,5 +1,17 @@
-import pandas as pd
+import pandas as pd 
 
+# Skapar en funktion för att räkna ut revenue/kategori 
+def revenue_per_category(data):
+    return (data.groupby("category", dropna=False, observed = True)
+               .agg( 
+                   total_intäkt= ("revenue", "sum"), #viktigast att räkna ut 
+                   antal_köp = ("revenue", "count"), #med i dok
+                   medel_intäkt_per_köp = ("revenue", "mean"), #med i dok 
+                   median_intäkt_per_köp = ("revenue", "median"), 
+                   lägsta_köp = ("revenue", "min"), 
+                   högsta_köp = ("revenue", "max")                                
+               ).reset_index()
+               )
 def top_categories(df, n=3):
     return(df.groupby("category", observed=True)["revenue"]
            .sum()
