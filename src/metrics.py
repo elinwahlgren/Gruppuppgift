@@ -27,4 +27,4 @@ def revenue_per_category(data):
 
 rpd = revenue_per_category(data)  #Ta bort vid renskrivning
 
-#rpd.to_csv("data/revenue_per_category.csv", index=False) # Gör data till en  filen, Ta bort vid renskrivning
+#rpd.to_csv("data/revenue_per_category.csv", index=False) # Gör data till en  filen, lägg till i notebook

@@ -28,7 +28,7 @@ class EcommerceAnalyzer:
         self.df["date"] = pd.to_datetime(self.df["date"], dayfirst=False, errors="coerce")
         return self.df
 
-df_clean = EcommerceAnalyzer(df).clean_df() 
+df_clean = EcommerceAnalyzer(df).clean_df() # lägg till i notebook 
 # print(df_clean.head())
 
 # print(df.dtypes)
