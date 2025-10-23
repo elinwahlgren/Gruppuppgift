@@ -20,3 +20,17 @@ def top_categories(df, n=3):
            .round(0)
            .astype(int)
         )
+
+def AOV(df):
+    return df["revenue"].mean()
+
+aov = AOV(df)               # Ska vara i notebook
+print(f"AOV: {aov:.2f}")    # Ska vara i notebook
+
+def AOV_varians(df):
+    return df["revenue"].std()
+
+varians = AOV_varians(df)                   # Ska vara i notebook
+print(f"Standardavvikelse: {varians:.2f}")   # Ska vara i notebook
+
+
