@@ -1,5 +1,12 @@
-23/10 Närvarande: 
 
+
+
+
+------------------------------------------------------------------------
+
+23/10 Närvarande: Malin, Elin
+- Gjorde flera pull-requests och granskade
+- Fortsatte med fler def funktioner
 
 ------------------------------------------------------------------------
 22/10 Närvarande: Malin, Elin, Faezeh
