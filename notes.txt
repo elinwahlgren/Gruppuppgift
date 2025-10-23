@@ -1,7 +1,40 @@
 
+22/10 Närvarande: 
+
+
+
+------------------------------------------------------------------------
+
+21/10 Närvarande: Malin, Elin
+- Tittade på hur man kvalitetsgranskar datan
+- PLanerade att gör kvalitetsgranskningen och def funktioner på onsdagen.
+------------------------------------------------------------------------
+
+16/10 Närvarande: Malin, Elin, Faezeh, Teimor
+Skapade branches:
+- git checkout -b feat/namn_på_din_branch
+- git push -u origin feat/namn_på_din_branch
+- därefter git add ., hit commit och git push
+- byta branch: git checkout namn_på_den_du_vill_byta_till
+- kom ihåg att ta git pull innan du börjar jobba
+
+User Stories:
+- beskriver en task i backlogg
+- beskriver en funktionalitet ur användarens perspektiv
+- mall: Som [roll] vill jag [mål] så att [syfte].
+
+Acceptance Criteria:
+mall:
+- givet [utgångsläge]
+- när [en handling utförs]
+- så [ska detta uppnås]
+
+Vi har inga check in förrän onsdag 22/10 utan kollar på veckans videos.
+------------------------------------------------------------------------
 
 15/10 Närvarande: Malin, Elin, Faezeh
 Skapade issues i projektet på github.
+------------------------------------------------------------------------
 
 14/10 Närvarande: Malin, Elin, (Andreas)
 Skapade projekt och kanbantavla
@@ -9,6 +42,7 @@ Satte upp mapstruktur
 La in filen med data
 Bjöd in Teimor
 Planerar att göra samtliga reviews i helgrupp. 
+------------------------------------------------------------------------
 
 13/10 Närvarande: Malin, Elin Faezeh
 Satte upp repo och klonade
