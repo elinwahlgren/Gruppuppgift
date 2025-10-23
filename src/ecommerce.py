@@ -27,8 +27,17 @@ class EcommerceAnalyzer:
         self.df["city"] = self.df["city"].astype("category")
         self.df["date"] = pd.to_datetime(self.df["date"], dayfirst=False, errors="coerce")
         return self.df
+    
+    def add_month(self):
+        
+        self.df["month"] = df["date"].dt.month #Källa https://www.youtube.com/watch?v=vnTWXn9LtHM Python ML Daily
+        return self.df
 
 df_clean = EcommerceAnalyzer(df).clean_df() # lägg till i notebook 
+df_clean_month = EcommerceAnalyzer(df_clean).add_month()
+
 # print(df_clean.head())
+# print(df_clean_month.head())
+
 
 # print(df.dtypes)
