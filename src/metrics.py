@@ -1,16 +1,4 @@
 import pandas as pd 
-import ecommerce as ec #Ta bort vid renskrivning
-data = ec.df_clean #Ta bort vid renskrivning
-
-
-
-
-
-
-
-
-
-
 
 # Skapar en funktion för att räkna ut revenue/kategori 
 def revenue_per_category(data):
@@ -24,7 +12,11 @@ def revenue_per_category(data):
                    högsta_köp = ("revenue", "max")                                
                ).reset_index()
                )
-
-rpd = revenue_per_category(data)  #Ta bort vid renskrivning
-
-#rpd.to_csv("data/revenue_per_category.csv", index=False) # Gör data till en  filen, lägg till i notebook
+def top_categories(df, n=3):
+    return(df.groupby("category", observed=True)["revenue"]
+           .sum()
+           .sort_values(ascending=False)
+           .head(n)
+           .round(0)
+           .astype(int)
+        )
