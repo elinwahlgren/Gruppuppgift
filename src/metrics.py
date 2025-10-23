@@ -3,7 +3,7 @@ import pandas as pd
 
 # Skapar en funktion för att räkna ut revenue/kategori 
 def revenue_per_category(df):
-    return (data.groupby("category", dropna=False, observed = True)
+    return (df.groupby("category", dropna=False, observed = True)
                .agg( 
                    total_intäkt= ("revenue", "sum"), #viktigast att räkna ut 
                    antal_köp = ("revenue", "count"), #med i dok
