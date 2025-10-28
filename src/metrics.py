@@ -8,8 +8,8 @@ def revenue_per_category(df):
     return (df.groupby("category", dropna=False, observed = True)
                .agg( 
                    total_intäkt= ("revenue", "sum"),                              
-               ).reset_index().astype(int)
-               )
+               ).reset_index()
+    )
 
 
 def total_units(df):
@@ -39,7 +39,7 @@ def revenue_per_city(df):
     return (df.groupby("city", dropna=False, observed = True)
                .agg( 
                    total_intäkt= ("revenue", "sum"),                                
-               ).reset_index().astype(int)
+               ).reset_index()
                )
 
 
@@ -49,6 +49,6 @@ def change_over_time(df):
     """
     return (df.groupby("month", dropna=False, observed=True)
             .agg(
-                intäkt = ("revenue", "sum"),
-            ).reset_index().astype(int)
+                revenue = ("revenue", "sum"),
+            ).reset_index()
             )
