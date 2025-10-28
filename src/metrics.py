@@ -30,6 +30,14 @@ def top_categories(df, n=3):
            .astype(int)
         )
 
+def aov(df):
+    return df["revenue"].mean()
+
+def aov_varians(df):
+    return df["revenue"].std()
+
+
+
 
 def revenue_per_city(df):
     """
