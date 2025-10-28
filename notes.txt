@@ -1,6 +1,10 @@
 
 
 
+28/10 Närvarande: Malin, Elin
+- Gjorde flera pull-requests och granskade
+- Började skapa notebook
+- Planerade visualiseringar
 
 ------------------------------------------------------------------------
 
