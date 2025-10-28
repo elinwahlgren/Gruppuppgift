@@ -18,6 +18,7 @@ def total_units(df):
     '''
     return df["units"].sum()
 
+
 def top_categories(df, n=3):
     """
     Tar fram de 3 största kategorierna 
