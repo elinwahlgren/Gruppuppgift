@@ -29,7 +29,6 @@ class EcommerceAnalyzer:
         return self.df
     
     def add_month(self):
-        
         self.df["month"] = df["date"].dt.month #Källa https://www.youtube.com/watch?v=vnTWXn9LtHM Python ML Daily
         return self.df
 

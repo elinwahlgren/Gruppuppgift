@@ -1,21 +1,27 @@
 import pandas as pd 
 
 
-# Skapar en funktion för att räkna ut revenue/kategori 
 def revenue_per_category(df):
+    """
+    Räknar ut intäkt per kategori
+    """
     return (df.groupby("category", dropna=False, observed = True)
                .agg( 
-                   total_intäkt= ("revenue", "sum"), #viktigast att räkna ut 
-                   antal_köp = ("revenue", "count"), #med i dok
-                   medel_intäkt_per_köp = ("revenue", "mean"), #med i dok 
-                   median_intäkt_per_köp = ("revenue", "median"), 
-                   lägsta_köp = ("revenue", "min"), 
-                   högsta_köp = ("revenue", "max")                                
-               ).reset_index()
+                   total_intäkt= ("revenue", "sum"),                              
+               ).reset_index().astype(int)
                )
 
 
+def total_units(df):
+    '''
+    Tar fram antal enheter.
+    '''
+    return df["units"].sum()
+
 def top_categories(df, n=3):
+    """
+    Tar fram de 3 största kategorierna 
+    """
     return(df.groupby("category", observed=True)["revenue"]
            .sum()
            .sort_values(ascending=False)
@@ -26,44 +32,22 @@ def top_categories(df, n=3):
 
 
 def revenue_per_city(df):
+    """
+    Tar fram intäkt per stad 
+    """
     return (df.groupby("city", dropna=False, observed = True)
                .agg( 
-                   total_intäkt= ("revenue", "sum"), #viktigast att räkna ut 
-                   antal_köp = ("revenue", "count"), 
-                   medel_intäkt_per_köp = ("revenue", "mean"), 
-                   median_intäkt_per_köp = ("revenue", "median"), 
-                   lägsta_köp = ("revenue", "min"), 
-                   högsta_köp = ("revenue", "max")                                
-               ).reset_index()
+                   total_intäkt= ("revenue", "sum"),                                
+               ).reset_index().astype(int)
                )
 
-def top_city(df):
-    return(df.groupby("city", observed=True)["revenue"]
-           .sum()
-           .sort_values(ascending=False)
-           .round(0)
-           .astype(int)
-        )
 
-# funktion för att se förändringar i intäkt över tid 
 def change_over_time(df):
+    """
+    Förändringar i inkomst över tid
+    """
     return (df.groupby("month", dropna=False, observed=True)
             .agg(
                 intäkt = ("revenue", "sum"),
-                antal_köp = ("order_id", "count"),
-                medel_intäkt_köp = ("revenue", "mean")
-            ).reset_index()
+            ).reset_index().astype(int)
             )
-def top_month(df):
-    return(df.groupby("month", observed=True)["revenue"]
-           .sum()
-           .sort_values(ascending=False)
-           .round(0)
-           .astype(int)
-        )
-
-
-# import ecommerce as ec
-
-# data = ec.df_clean_month
-# print(top_month(data))
