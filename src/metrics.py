@@ -1,18 +1,27 @@
 import pandas as pd 
 
-# Skapar en funktion för att räkna ut revenue/kategori 
-def revenue_per_category(data):
-    return (data.groupby("category", dropna=False, observed = True)
+
+def revenue_per_category(df):
+    """
+    Räknar ut intäkt per kategori
+    """
+    return (df.groupby("category", dropna=False, observed = True)
                .agg( 
-                   total_intäkt= ("revenue", "sum"), #viktigast att räkna ut 
-                   antal_köp = ("revenue", "count"), #med i dok
-                   medel_intäkt_per_köp = ("revenue", "mean"), #med i dok 
-                   median_intäkt_per_köp = ("revenue", "median"), 
-                   lägsta_köp = ("revenue", "min"), 
-                   högsta_köp = ("revenue", "max")                                
-               ).reset_index()
+                   total_intäkt= ("revenue", "sum"),                              
+               ).reset_index().astype(int)
                )
+
+
+def total_units(df):
+    '''
+    Tar fram antal enheter.
+    '''
+    return df["units"].sum()
+
 def top_categories(df, n=3):
+    """
+    Tar fram de 3 största kategorierna 
+    """
     return(df.groupby("category", observed=True)["revenue"]
            .sum()
            .sort_values(ascending=False)
@@ -29,3 +38,24 @@ def aov_varians(df):
 
 
 
+
+def revenue_per_city(df):
+    """
+    Tar fram intäkt per stad 
+    """
+    return (df.groupby("city", dropna=False, observed = True)
+               .agg( 
+                   total_intäkt= ("revenue", "sum"),                                
+               ).reset_index().astype(int)
+               )
+
+
+def change_over_time(df):
+    """
+    Förändringar i inkomst över tid
+    """
+    return (df.groupby("month", dropna=False, observed=True)
+            .agg(
+                intäkt = ("revenue", "sum"),
+            ).reset_index().astype(int)
+            )
