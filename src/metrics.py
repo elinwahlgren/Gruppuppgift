@@ -24,13 +24,8 @@ def top_categories(df, n=3):
 def aov(df):
     return df["revenue"].mean()
 
-aov = aov(df)               # Ska vara i notebook
-print(f"AOV: {aov:.2f}")    # Ska vara i notebook
-
 def aov_varians(df):
     return df["revenue"].std()
 
-varians = aov_varians(df)                   # Ska vara i notebook
-print(f"Standardavvikelse: {varians:.2f}")   # Ska vara i notebook
 
 
