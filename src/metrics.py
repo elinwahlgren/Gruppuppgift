@@ -1,6 +1,5 @@
 import pandas as pd 
 
-
 def revenue_per_category(df):
     """
     Räknar ut intäkt per kategori
@@ -11,13 +10,11 @@ def revenue_per_category(df):
                ).reset_index()
     )
 
-
 def total_units(df):
     '''
     Tar fram antal enheter.
     '''
     return df["units"].sum()
-
 
 def top_categories(df, n=3):
     """
@@ -32,13 +29,16 @@ def top_categories(df, n=3):
         )
 
 def aov(df):
+    """
+    Medelintäkt per order
+    """
     return df["revenue"].mean()
 
 def aov_varians(df):
+    """
+    Spridning medelintäkt per order
+    """
     return df["revenue"].std()
-
-
-
 
 def revenue_per_city(df):
     """
@@ -50,7 +50,6 @@ def revenue_per_city(df):
                ).reset_index()
                )
 
-
 def change_over_time(df):
     """
     Förändringar i intäkt över tid
@@ -60,6 +59,7 @@ def change_over_time(df):
                 revenue = ("revenue", "sum"),
             ).reset_index()
             )
+
 def find_outliers(df, kolumn='revenue', grupp=None, tröskel=2, observed=True):
     """
     Hittar avvikelser i ett dataset.
@@ -78,7 +78,6 @@ def find_outliers(df, kolumn='revenue', grupp=None, tröskel=2, observed=True):
                                     (grupper < medel - tröskel * std) ]
         return avvikande_grupper
 
-
 def summarize_outliers(df, observed = True):
     """
     Ger en sammanfattning av eventuella avvikelser:
@@ -88,3 +87,18 @@ def summarize_outliers(df, observed = True):
     hög_intäkt_stader = find_outliers(df, 'revenue', grupp='city')
 
     return revenue_avvikelser, hög_intäkt_kategorier, hög_intäkt_stader
+
+def pivot_revenue_by_category_and_city(df):
+    """
+    Pivotabell intäkt per kategor och stad
+    """
+    piv = pd.pivot_table(
+        df,
+        index="category",
+        columns="city",
+        values="revenue",
+        aggfunc="sum",
+        fill_value=0,
+        margins=True
+    ).sort_values(by="All", ascending=False)
+    return piv
