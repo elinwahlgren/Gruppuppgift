@@ -9,7 +9,7 @@ def revenue_per_category(df):
                .agg( 
                    total_intäkt= ("revenue", "sum"),                              
                ).reset_index()
-               )
+    )
 
 
 def total_units(df):
@@ -17,6 +17,7 @@ def total_units(df):
     Tar fram antal enheter.
     '''
     return df["units"].sum()
+
 
 def top_categories(df, n=3):
     """

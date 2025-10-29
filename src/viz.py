@@ -1,4 +1,4 @@
-import matplotlib as plt 
+import matplotlib.pyplot as plt 
 import pandas as pd
 import numpy as np
 
@@ -9,7 +9,7 @@ def bar_top_categories(df, ax=None):
                     std=("revenue", "std"),
                     n=("revenue", "count")
                 ).reset_index())
-
+    
     se = summary["std"] / np.sqrt(summary["n"])
 
     if ax is None:
@@ -19,6 +19,15 @@ def bar_top_categories(df, ax=None):
     ax.set_xlabel("Kategori")
     ax.set_ylabel("Medelintäkt")
     ax.grid(True, axis="y")
+    return ax
+  
+  def line (ax, x, y, title, xlabel, ylabel, grid: bool = True):
+    ax.plot(x, y, marker = "o")
+    ax.set_title(title)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+    ax.grid(grid)
+    plt.tight_layout()
     return ax
 
 def boxplot_revenue_by_category(df, ax=None):
