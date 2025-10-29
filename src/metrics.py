@@ -60,3 +60,31 @@ def change_over_time(df):
                 revenue = ("revenue", "sum"),
             ).reset_index()
             )
+def find_outliers(df, kolumn='revenue', grupp=None, tröskel=2, observed=True):
+    """
+    Hittar avvikelser i ett dataset.
+    """
+    if grupp is None:
+        medel = df[kolumn].mean()
+        std = df[kolumn].std()
+        avvikelser = df[(df[kolumn] > medel + tröskel * std) |
+                        (df[kolumn] < medel - tröskel * std)]
+        return avvikelser
+    else:
+        grupper = df.groupby(grupp)[kolumn].sum()
+        medel = grupper.mean()
+        std = grupper.std()
+        avvikande_grupper = grupper[(grupper > medel + tröskel * std) |
+                                    (grupper < medel - tröskel * std) ]
+        return avvikande_grupper
+
+
+def summarize_outliers(df, observed = True):
+    """
+    Ger en sammanfattning av eventuella avvikelser:
+    """
+    revenue_avvikelser = find_outliers(df, 'revenue')
+    hög_intäkt_kategorier = find_outliers(df, 'revenue', grupp='category')
+    hög_intäkt_stader = find_outliers(df, 'revenue', grupp='city')
+
+    return revenue_avvikelser, hög_intäkt_kategorier, hög_intäkt_stader
