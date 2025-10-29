@@ -9,7 +9,7 @@ def revenue_per_category(df):
                .agg( 
                    total_intäkt= ("revenue", "sum"),                              
                ).reset_index()
-               )
+    )
 
 
 def total_units(df):
@@ -17,6 +17,7 @@ def total_units(df):
     Tar fram antal enheter.
     '''
     return df["units"].sum()
+
 
 def top_categories(df, n=3):
     """
@@ -52,11 +53,11 @@ def revenue_per_city(df):
 
 def change_over_time(df):
     """
-    Förändringar i inkomst över tid
+    Förändringar i intäkt över tid
     """
     return (df.groupby("month", dropna=False, observed=True)
             .agg(
-                intäkt = ("revenue", "sum"),
+                revenue = ("revenue", "sum"),
             ).reset_index()
             )
 def find_outliers(df, kolumn='revenue', grupp=None, tröskel=2, observed=True):
