@@ -1,5 +1,17 @@
 import pandas as pd 
 
+def total_units(df):
+    '''
+    Tar fram antal enheter.
+    '''
+    return df["units"].sum()
+
+def total_revenue(df):
+    '''
+    Tar fram total intäkt.
+    '''
+    return df["revenue"].sum().astype(int)
+
 def revenue_per_category(df):
     """
     Räknar ut intäkt per kategori
@@ -7,14 +19,8 @@ def revenue_per_category(df):
     return (df.groupby("category", dropna=False, observed = True)
                .agg( 
                    total_intäkt= ("revenue", "sum"),                              
-               ).reset_index()
+               ).reset_index().round(0)
     )
-
-def total_units(df):
-    '''
-    Tar fram antal enheter.
-    '''
-    return df["units"].sum()
 
 def top_categories(df, n=3):
     """
@@ -60,7 +66,7 @@ def change_over_time(df):
             ).reset_index()
             )
 
-def find_outliers(df, kolumn='revenue', grupp=None, tröskel=2, observed=True):
+def find_outliers(df, kolumn='revenue', grupp=None, tröskel=2):
     """
     Hittar avvikelser i ett dataset.
     """
@@ -71,22 +77,22 @@ def find_outliers(df, kolumn='revenue', grupp=None, tröskel=2, observed=True):
                         (df[kolumn] < medel - tröskel * std)]
         return avvikelser
     else:
-        grupper = df.groupby(grupp)[kolumn].sum()
+        grupper = df.groupby(grupp, observed= True)[kolumn].sum()
         medel = grupper.mean()
         std = grupper.std()
         avvikande_grupper = grupper[(grupper > medel + tröskel * std) |
                                     (grupper < medel - tröskel * std) ]
         return avvikande_grupper
 
-def summarize_outliers(df, observed = True):
+def summarize_outliers(df):
     """
     Ger en sammanfattning av eventuella avvikelser:
     """
     revenue_avvikelser = find_outliers(df, 'revenue')
     hög_intäkt_kategorier = find_outliers(df, 'revenue', grupp='category')
     hög_intäkt_stader = find_outliers(df, 'revenue', grupp='city')
-
     return revenue_avvikelser, hög_intäkt_kategorier, hög_intäkt_stader
+
 
 def pivot_revenue_by_category_and_city(df):
     """
@@ -99,6 +105,7 @@ def pivot_revenue_by_category_and_city(df):
         values="revenue",
         aggfunc="sum",
         fill_value=0,
-        margins=True
+        margins=True,
+        observed = True
     ).sort_values(by="All", ascending=False)
     return piv

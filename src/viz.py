@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 def bar_top_categories(df, ax=None):
-    summary = (df.groupby("category", dropna=False)
+    summary = (df.groupby("category", dropna=False, observed = True)
             .agg(
                     medel=("revenue", "mean"),
                     std=("revenue", "std"),
@@ -32,7 +32,7 @@ def boxplot_revenue_by_category(df, ax=None):
     return ax
 
 def revenue_by_city(df, ax=None):
-    summary = (df.groupby("city", dropna=False)
+    summary = (df.groupby("city", dropna=False, observed=True)
             .agg(
                     medel=("revenue", "mean"),
                     std=("revenue", "std"),
