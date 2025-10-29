@@ -17,3 +17,4 @@ class EcommerceAnalyzer:
         df = self.df.copy()
         df["month"] = df["date"].dt.to_period("M").dt.to_timestamp()
         return df
+
