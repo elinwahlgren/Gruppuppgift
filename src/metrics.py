@@ -53,10 +53,10 @@ def revenue_per_city(df):
 
 def change_over_time(df):
     """
-    Förändringar i inkomst över tid
+    Förändringar i intäkt över tid
     """
     return (df.groupby("month", dropna=False, observed=True)
             .agg(
-                intäkt = ("revenue", "sum"),
+                revenue = ("revenue", "sum"),
             ).reset_index()
             )
