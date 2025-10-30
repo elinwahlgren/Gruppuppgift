@@ -16,11 +16,12 @@ def revenue_per_category(df):
     """
     Räknar ut intäkt per kategori
     """
-    return (df.groupby("category", dropna=False, observed = True)
+    result = (df.groupby("category", dropna=False, observed = True)
                .agg( 
                    total_intäkt= ("revenue", "sum"),                              
                ).reset_index().round(0)
     )
+    return result
 
 def top_categories(df, n=3):
     """

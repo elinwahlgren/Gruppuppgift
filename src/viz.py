@@ -31,7 +31,7 @@ def boxplot_revenue_by_category(df, ax=None):
     ax.set_ylabel("Intäkt")
     return ax
 
-def revenue_by_city(df, ax=None):
+def revenue_by_city(df, ax=None): # Källa "if ax is None": https://stackoverflow.com/questions/20853179/purpose-of-ax-keyword-in-pandas-scatter-matrix-function
     summary = (df.groupby("city", dropna=False, observed=True)
             .agg(
                     medel=("revenue", "mean"),
