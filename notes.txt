@@ -1,5 +1,6 @@
 
-
+ 31/10 Närvarande: Malin, Elin, Faezeh
+ -Finaliserade allt
 
 30/10 Närvarande: Malin, Elin, Faezeh
 - Slutfört report.ipynb
