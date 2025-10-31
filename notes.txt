@@ -1,7 +1,34 @@
 
-22/10 Närvarande: Malin, Elin
+ 31/10 Närvarande: Malin, Elin, Faezeh
+ -Finaliserade allt
+
+30/10 Närvarande: Malin, Elin, Faezeh
+- Slutfört report.ipynb
+- Skrivit i README
+
+------------------------------------------------------------------------
+
+29/10 Närvarande: Malin, Elin, Faezeh
+- Jobbade med report.ipynb
+------------------------------------------------------------------------
+
+28/10 Närvarande: Malin, Elin, Faezeh
+- Gjorde flera pull-requests och granskade
+- Började skapa report.ipynb
+- Planerade visualiseringar
+
+------------------------------------------------------------------------
+
+23/10 Närvarande: Malin, Elin
 - Gjorde flera pull-requests och granskade
 - Fortsatte med fler def funktioner
+
+------------------------------------------------------------------------
+22/10 Närvarande: Malin, Elin, Faezeh
+- Skapde issues och branches för inläsning och städning av filen
+- Kodade för inläsning
+- Kodade för städning inkl. en class
+Har flera frågor till Joakim inför morgondagen
 
 ------------------------------------------------------------------------
 
@@ -10,7 +37,7 @@
 - Planerade att gör kvalitetsgranskningen och def funktioner på onsdagen.
 ------------------------------------------------------------------------
 
-16/10 Närvarande: Malin, Elin, Faezeh, Teimor
+16/10 Närvarande: Malin, Elin, Faezeh
 Skapade branches:
 - git checkout -b feat/namn_på_din_branch
 - git push -u origin feat/namn_på_din_branch
