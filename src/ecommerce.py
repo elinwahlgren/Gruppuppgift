@@ -17,4 +17,9 @@ class EcommerceAnalyzer:
         df = self.df.copy()
         df["month"] = df["date"].dt.to_period("M").dt.to_timestamp()
         return df
+    
+    def add_week(self):
+        df = self.df.copy()
+        df["week"] = df["date"].dt.to_period("W").dt.to_timestamp()
+        return df
 

@@ -47,6 +47,16 @@ def aov_varians(df):
     """
     return df["revenue"].std()
 
+def revenue_per_week(df):
+    """
+    Förändringar i intäkt per vecka
+    """
+    return (df.groupby("week", dropna=False, observed=True)
+            .agg(
+                revenue = ("revenue", "sum"),
+            ).reset_index()
+            )
+
 def revenue_per_city(df):
     """
     Tar fram intäkt per stad 
