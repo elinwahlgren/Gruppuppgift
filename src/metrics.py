@@ -99,9 +99,19 @@ def summarize_outliers(df):
     """
     Ger en sammanfattning av eventuella avvikelser:
     """
-    revenue_avvikelser = find_outliers(df, 'revenue')
-    hög_intäkt_kategorier = find_outliers(df, 'revenue', grupp='category')
-    hög_intäkt_stader = find_outliers(df, 'revenue', grupp='city')
+    revenue_avvikelser = find_outliers(df, 'revenue').head()
+    kategory = find_outliers(df, 'revenue', grupp='category')
+    Stader = find_outliers(df, 'revenue', grupp='city')
+
+    if kategory.empty:
+        hög_intäkt_kategorier = "Inga kategorier med ovanlig intäkt"
+    else:
+        hög_intäkt_kategorier = kategory
+    if Stader.empty:
+        hög_intäkt_stader = "Inga städer med ovanlig intäkt"
+    else:
+        hög_intäkt_stader = Stader
+
     return revenue_avvikelser, hög_intäkt_kategorier, hög_intäkt_stader
 
 
